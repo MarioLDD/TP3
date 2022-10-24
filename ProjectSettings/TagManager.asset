@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Ground
   - Bullet
+  - Enemy
+  - Fire
+  - LimitR
+  - LimitL
+  - Objetive
+  - Fall
   layers:
   - Default
   - TransparentFX

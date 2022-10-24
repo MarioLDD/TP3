@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Schema;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -9,9 +11,16 @@ public class Shooting : MonoBehaviour
 {
     public Transform spawnPosition;
     public GameObject bulletPrefab;
-    public float bulletForce = 10;
+    public float bulletForce = 50;
+    public int totalEnemy;
     public Text killCountUI;
     public int killCount;
+
+    void Start()
+    {
+        totalEnemy = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        killCountUI.text = "Kills: " + killCount.ToString() + " / " + totalEnemy.ToString();
+    }
 
     void Update()
     {
@@ -27,7 +36,15 @@ public class Shooting : MonoBehaviour
     {
         Debug.Log("Enemy Killed");
         killCount++;
-        killCountUI.text = killCount.ToString();
+        killCountUI.text = "Kills: " + killCount.ToString() + " / " + totalEnemy.ToString();
+
+        if (killCount == totalEnemy)
+        {
+            SceneManager.LoadScene("MenuVictory");
+        }
     }
+
+
+
 }
 

@@ -5,49 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    public GameObject gameover;
-    public GameObject victory;
-    public GameObject menuInicial;
-    // Start is called before the first frame update
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
     public void PlayGame()
     {
         SceneManager.LoadScene("Game");
     }
 
-    public void Victory()
-    {
-        menuInicial.SetActive(false);
-        victory.SetActive(true);
-
-    }
 
     public void Reset()
     {
-        victory.SetActive(false);
-        gameover.SetActive(false);
-        menuInicial.SetActive(true);
-        Debug.Log("reset");
+        SceneManager.LoadScene("Menu");
     }
-
-
-    public void GameOver()
-    {
-        menuInicial.SetActive(false);
-        gameover.SetActive(true);
-    }
-
 
     public void Exit()
     {

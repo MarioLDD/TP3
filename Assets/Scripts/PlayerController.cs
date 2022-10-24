@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float forceJump = 6;
     bool grounded;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         grounded = true;
         transform.Rotate(0 , 0, 0);
+
+
 
     }
 

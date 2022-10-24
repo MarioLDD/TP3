@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -12,6 +13,13 @@ public class Enemy : MonoBehaviour
 
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
+
+
         }
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            SceneManager.LoadScene("MenuGameOver");
+        }
+
     }
 }
